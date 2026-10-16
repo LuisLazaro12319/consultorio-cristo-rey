@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-500 via-emerald-400 to-teal-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex flex-col">
+    <section className="relative overflow-hidden bg-gradient-to-br from-violet-500 via-violet-400 to-purple-300 text-white min-h-[680px] sm:min-h-[760px] lg:min-h-[88vh] flex flex-col">
       {/* Video de fondo (si no carga, queda el degradado celeste) */}
       <video
         ref={videoRef}
@@ -49,9 +49,9 @@ export const Hero: React.FC = () => {
       />
 
       {/* Capas suaves: solo oscurecen donde está el texto, el resto del video se ve completo */}
-      <div className="absolute inset-0 bg-emerald-900/10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-emerald-800/65 via-emerald-700/25 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-emerald-800/35 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-violet-900/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-violet-800/65 via-violet-700/25 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-violet-800/35 to-transparent pointer-events-none" />
 
       <div className="absolute top-5 right-5 z-20">
         <button
@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
             style={{ textWrap: 'balance' }}
           >
             {CLINIC.headline}{' '}
-            <span className="bg-gradient-to-r from-teal-200 to-emerald-100 bg-clip-text text-transparent [text-shadow:none]">
+            <span className="bg-gradient-to-r from-amber-200 to-yellow-100 bg-clip-text text-transparent [text-shadow:none]">
               {CLINIC.headlineHighlight}
             </span>
           </h1>
@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
             <a
               href="#turnos"
               onClick={irA('turnos')}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm sm:px-7 sm:py-4 sm:text-base sm:gap-2.5 font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-emerald-900/30 transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm sm:px-7 sm:py-4 sm:text-base sm:gap-2.5 font-bold text-white bg-[#16c55e] hover:bg-[#12a84f] rounded-xl shadow-lg shadow-green-900/30 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <CalendarClock className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Pedir turno</span>
@@ -103,7 +103,7 @@ export const Hero: React.FC = () => {
             <a
               href="#tratamientos"
               onClick={irA('tratamientos')}
-              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm sm:px-6 sm:py-4 sm:text-base sm:gap-2 font-semibold text-emerald-900 bg-white hover:bg-emerald-50 rounded-xl shadow-lg shadow-emerald-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm sm:px-6 sm:py-4 sm:text-base sm:gap-2 font-semibold text-violet-900 bg-white hover:bg-violet-50 rounded-xl shadow-lg shadow-violet-950/20 transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               <span>Ver tratamientos</span>
               <ArrowRight className="w-4 h-4" />
@@ -112,11 +112,11 @@ export const Hero: React.FC = () => {
 
           <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold [text-shadow:none]">
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/90 text-slate-900 shadow-sm">
-              <Clock className="w-4 h-4 text-emerald-600" />
+              <Clock className="w-4 h-4 text-violet-600" />
               <span>{CLINIC.hoursSummary}</span>
             </div>
             <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/90 text-slate-900 shadow-sm">
-              <MapPin className="w-4 h-4 text-emerald-600" />
+              <MapPin className="w-4 h-4 text-violet-600" />
               <span>{CLINIC.streets}</span>
             </div>
           </div>
@@ -133,7 +133,7 @@ export const Hero: React.FC = () => {
                 key={h.title}
                 className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 text-center sm:text-left"
               >
-                <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                <span className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center">
                   <Icono className="w-5 h-5 sm:w-6 sm:h-6" />
                 </span>
                 <span>

@@ -49,17 +49,17 @@ export const LocationSection: React.FC = () => {
   return (
     <section
       id="ubicacion"
-      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-white to-emerald-50 border-b border-emerald-100 overflow-hidden"
+      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-white to-violet-50 border-b border-violet-100 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título con el mismo estilo que las demás secciones */}
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-700 via-violet-600 to-purple-500 bg-clip-text text-transparent">
               {unica ? 'Dónde estamos' : 'Nuestras sucursales'}
             </span>
           </h2>
-          <div className="mx-auto mt-4 mb-5 h-1.5 w-20 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" />
+          <div className="mx-auto mt-4 mb-5 h-1.5 w-20 rounded-full bg-gradient-to-r from-violet-500 to-amber-400" />
           <p className="text-base sm:text-lg text-slate-600">
             {unica
               ? CLINIC.fullAddress
@@ -82,8 +82,8 @@ export const LocationSection: React.FC = () => {
               onClick={() => irA(i)}
               className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-bold border transition-colors cursor-pointer ${
                 activo === i
-                  ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white border-transparent shadow-md shadow-emerald-500/25'
-                  : 'bg-white text-emerald-800 border-emerald-200 hover:bg-emerald-50'
+                  ? 'bg-gradient-to-r from-violet-500 to-purple-500 text-white border-transparent shadow-md shadow-violet-500/25'
+                  : 'bg-white text-violet-800 border-violet-200 hover:bg-violet-50'
               }`}
             >
               <MapPin className="w-4 h-4" />
@@ -106,16 +106,16 @@ export const LocationSection: React.FC = () => {
                 key={b.id}
                 className="basis-full w-full min-w-0 grow-0 shrink-0 snap-center px-4 sm:px-6 lg:px-8 py-4"
               >
-                <article className="rounded-3xl bg-white border border-emerald-100 shadow-xl shadow-emerald-900/5 p-4 sm:p-6">
+                <article className="rounded-3xl bg-white border border-violet-100 shadow-xl shadow-violet-900/5 p-4 sm:p-6">
                   <header className="flex items-center justify-between gap-3 mb-4">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
                         {b.label}
                       </h3>
-                      <p className="text-sm sm:text-base font-semibold text-emerald-700">{b.zone}</p>
+                      <p className="text-sm sm:text-base font-semibold text-violet-700">{b.zone}</p>
                     </div>
                     {!unica && (
-                      <span className="shrink-0 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-xs font-bold">
+                      <span className="shrink-0 px-3 py-1 rounded-full bg-violet-50 border border-violet-100 text-violet-800 text-xs font-bold">
                         {i + 1} de {BRANCHES.length}
                       </span>
                     )}
@@ -128,7 +128,7 @@ export const LocationSection: React.FC = () => {
                     }`}
                   >
                     <div
-                      className={`relative rounded-2xl overflow-hidden bg-emerald-50 ${
+                      className={`relative rounded-2xl overflow-hidden bg-violet-50 ${
                         b.video
                           ? 'bg-black w-full max-w-[320px] mx-auto lg:max-w-none aspect-[9/16]'
                           : 'h-56 sm:h-72 lg:h-[340px]'
@@ -151,8 +151,8 @@ export const LocationSection: React.FC = () => {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-teal-100 flex flex-col items-center justify-center gap-2 text-emerald-400">
-                          <div className="w-20 h-20 rounded-full border-2 border-dashed border-emerald-300 flex items-center justify-center">
+                        <div className="w-full h-full bg-gradient-to-br from-violet-50 to-purple-100 flex flex-col items-center justify-center gap-2 text-violet-400">
+                          <div className="w-20 h-20 rounded-full border-2 border-dashed border-violet-300 flex items-center justify-center">
                             <Camera className="w-9 h-9" />
                           </div>
                           <span className="text-xs font-semibold">Foto de la sucursal</span>
@@ -160,7 +160,7 @@ export const LocationSection: React.FC = () => {
                       )}
                     </div>
                     <div
-                      className={`relative rounded-2xl overflow-hidden border border-emerald-100 ${
+                      className={`relative rounded-2xl overflow-hidden border border-violet-100 ${
                         b.video ? 'h-72 lg:h-auto lg:min-h-[420px]' : 'h-72 lg:h-[340px]'
                       }`}
                     >
@@ -181,7 +181,7 @@ export const LocationSection: React.FC = () => {
                   <div className="mt-5 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
                     <div className="space-y-4">
                       <p className="flex items-start gap-2 text-slate-800 font-semibold">
-                        <MapPin className="w-5 h-5 text-emerald-600 mt-0.5 shrink-0" />
+                        <MapPin className="w-5 h-5 text-violet-600 mt-0.5 shrink-0" />
                         <span>{b.fullAddress}</span>
                       </p>
                       <div className="flex flex-wrap gap-2.5">
@@ -198,7 +198,7 @@ export const LocationSection: React.FC = () => {
                           href={b.mapsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white text-sm font-bold shadow-md shadow-emerald-500/25 transition-all"
+                          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white text-sm font-bold shadow-md shadow-violet-500/25 transition-all"
                         >
                           <Navigation className="w-4 h-4" />
                           <span>Cómo llegar</span>
@@ -209,27 +209,27 @@ export const LocationSection: React.FC = () => {
                           onClick={() => copiar(b.id, b.fullAddress)}
                           className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50 text-sm font-medium transition-colors cursor-pointer"
                         >
-                          {copiada === b.id ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                          {copiada === b.id ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                           <span>{copiada === b.id ? 'Copiada' : 'Copiar dirección'}</span>
                         </button>
                       </div>
                     </div>
 
-                    <div className="rounded-2xl bg-emerald-50/60 border border-emerald-100 p-4">
+                    <div className="rounded-2xl bg-violet-50/60 border border-violet-100 p-4">
                       <div className="flex items-center justify-between gap-3 mb-3">
                         <div className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                          <Clock className="w-4 h-4 text-emerald-700" />
+                          <Clock className="w-4 h-4 text-violet-700" />
                           <span>Horarios de atención</span>
                         </div>
                         {b.showSchedule && (
                           <span
                             className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
                               status.isOpen
-                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                ? 'bg-green-50 text-green-700 border-green-200'
                                 : 'bg-amber-50 text-amber-700 border-amber-200'
                             }`}
                           >
-                            <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-500' : 'bg-amber-400'}`} />
+                            <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-green-500' : 'bg-amber-400'}`} />
                             {status.badge}
                           </span>
                         )}
@@ -242,7 +242,7 @@ export const LocationSection: React.FC = () => {
                               <div
                                 key={d.dayName}
                                 className={`flex items-center justify-between py-1 px-2 rounded-lg ${
-                                  hoy ? 'bg-white font-semibold text-emerald-900 border border-emerald-100' : ''
+                                  hoy ? 'bg-white font-semibold text-violet-900 border border-violet-100' : ''
                                 }`}
                               >
                                 <span>{d.dayName}</span>
@@ -273,7 +273,7 @@ export const LocationSection: React.FC = () => {
             onClick={() => irA(activo - 1)}
             disabled={activo === 0}
             aria-label="Sucursal anterior"
-            className="w-10 h-10 rounded-full border border-emerald-200 bg-white text-emerald-800 flex items-center justify-center hover:bg-emerald-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full border border-violet-200 bg-white text-violet-800 flex items-center justify-center hover:bg-violet-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -281,7 +281,7 @@ export const LocationSection: React.FC = () => {
             {BRANCHES.map((b, i) => (
               <span
                 key={b.id}
-                className={`h-2.5 rounded-full transition-all ${activo === i ? 'w-8 bg-emerald-600' : 'w-2.5 bg-emerald-200'}`}
+                className={`h-2.5 rounded-full transition-all ${activo === i ? 'w-8 bg-violet-600' : 'w-2.5 bg-violet-200'}`}
               />
             ))}
           </div>
@@ -290,7 +290,7 @@ export const LocationSection: React.FC = () => {
             onClick={() => irA(activo + 1)}
             disabled={activo === BRANCHES.length - 1}
             aria-label="Sucursal siguiente"
-            className="w-10 h-10 rounded-full border border-emerald-200 bg-white text-emerald-800 flex items-center justify-center hover:bg-emerald-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full border border-violet-200 bg-white text-violet-800 flex items-center justify-center hover:bg-violet-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

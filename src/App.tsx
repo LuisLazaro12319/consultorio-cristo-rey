@@ -13,7 +13,7 @@ import { useSucursal } from './data/sucursalElegida';
 export default function App() {
   const { sucursal } = useSucursal();
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900">
+    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-violet-100 selection:text-violet-900">
       <Navbar />
       <main>
         <Hero />

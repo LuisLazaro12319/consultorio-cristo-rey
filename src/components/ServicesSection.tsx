@@ -20,15 +20,15 @@ import { useSucursal } from '../data/sucursalElegida';
 const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: string; barra: string; link: string }> = {
   stethoscope: {
     icon: <Stethoscope className="w-6 h-6 text-white" />,
-    badge: 'from-emerald-500 to-emerald-600',
-    barra: 'from-emerald-500 to-emerald-600',
-    link: 'text-emerald-700 hover:text-emerald-900',
+    badge: 'from-violet-500 to-violet-600',
+    barra: 'from-violet-500 to-violet-600',
+    link: 'text-violet-700 hover:text-violet-900',
   },
   sparkles: {
     icon: <Sparkles className="w-6 h-6 text-white" />,
-    badge: 'from-teal-500 to-fuchsia-500',
-    barra: 'from-teal-500 to-fuchsia-500',
-    link: 'text-teal-700 hover:text-teal-900',
+    badge: 'from-purple-500 to-fuchsia-500',
+    barra: 'from-purple-500 to-fuchsia-500',
+    link: 'text-purple-700 hover:text-purple-900',
   },
   layers: {
     icon: <Layers className="w-6 h-6 text-white" />,
@@ -38,21 +38,21 @@ const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: str
   },
   shield: {
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
-    badge: 'from-rose-500 to-teal-500',
-    barra: 'from-rose-500 to-teal-500',
+    badge: 'from-rose-500 to-purple-500',
+    barra: 'from-rose-500 to-purple-500',
     link: 'text-rose-600 hover:text-rose-800',
   },
   activity: {
     icon: <Activity className="w-6 h-6 text-white" />,
-    badge: 'from-emerald-500 to-emerald-500',
-    barra: 'from-emerald-500 to-emerald-500',
-    link: 'text-emerald-700 hover:text-emerald-900',
+    badge: 'from-violet-500 to-violet-500',
+    barra: 'from-violet-500 to-violet-500',
+    link: 'text-violet-700 hover:text-violet-900',
   },
   smile: {
     icon: <Smile className="w-6 h-6 text-white" />,
-    badge: 'from-teal-400 to-emerald-500',
-    barra: 'from-teal-400 to-emerald-500',
-    link: 'text-teal-700 hover:text-emerald-900',
+    badge: 'from-purple-400 to-violet-500',
+    barra: 'from-purple-400 to-violet-500',
+    link: 'text-purple-700 hover:text-violet-900',
   },
   crown: {
     icon: <Crown className="w-6 h-6 text-white" />,
@@ -68,9 +68,9 @@ const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: str
   },
   gem: {
     icon: <Gem className="w-6 h-6 text-white" />,
-    badge: 'from-emerald-400 to-emerald-500',
-    barra: 'from-emerald-400 to-emerald-500',
-    link: 'text-emerald-700 hover:text-emerald-900',
+    badge: 'from-violet-400 to-violet-500',
+    barra: 'from-violet-400 to-violet-500',
+    link: 'text-violet-700 hover:text-violet-900',
   },
 };
 
@@ -145,7 +145,7 @@ const CintaServicios: React.FC = () => {
           <div
             key={`${service.id}-${i}`}
             aria-hidden={copia || undefined}
-            className="relative shrink-0 w-[46vw] min-w-[158px] max-w-[210px] bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between shadow-md shadow-emerald-900/5 overflow-hidden"
+            className="relative shrink-0 w-[46vw] min-w-[158px] max-w-[210px] bg-white rounded-2xl border border-slate-100 p-3.5 flex flex-col justify-between shadow-md shadow-violet-900/5 overflow-hidden"
           >
             <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${e.barra}`} />
             <div>
@@ -214,7 +214,7 @@ const GrillaServicios: React.FC = () => {
                 return (
                   <div
                     key={service.id}
-                    className="group relative bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between shadow-md shadow-emerald-900/5 hover:shadow-xl hover:shadow-emerald-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group relative bg-white rounded-2xl border border-slate-100 p-6 flex flex-col justify-between shadow-md shadow-violet-900/5 hover:shadow-xl hover:shadow-violet-900/10 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
                     <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${e.barra}`} />
                     <div className="flex items-start gap-4">
@@ -255,7 +255,7 @@ const GrillaServicios: React.FC = () => {
             onClick={() => irA(activa - 1)}
             disabled={activa === 0}
             aria-label="Tratamientos anteriores"
-            className="w-10 h-10 rounded-full border border-teal-200 bg-white text-emerald-800 flex items-center justify-center hover:bg-teal-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full border border-purple-200 bg-white text-violet-800 flex items-center justify-center hover:bg-purple-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -269,7 +269,7 @@ const GrillaServicios: React.FC = () => {
                 aria-label={`Página ${i + 1}`}
                 onClick={() => irA(i)}
                 className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                  activa === i ? 'w-8 bg-emerald-600' : 'w-2.5 bg-teal-200 hover:bg-teal-300'
+                  activa === i ? 'w-8 bg-violet-600' : 'w-2.5 bg-purple-200 hover:bg-purple-300'
                 }`}
               />
             ))}
@@ -279,7 +279,7 @@ const GrillaServicios: React.FC = () => {
             onClick={() => irA(activa + 1)}
             disabled={activa === paginas.length - 1}
             aria-label="Más tratamientos"
-            className="w-10 h-10 rounded-full border border-teal-200 bg-white text-emerald-800 flex items-center justify-center hover:bg-teal-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-full border border-purple-200 bg-white text-violet-800 flex items-center justify-center hover:bg-purple-50 disabled:opacity-35 disabled:cursor-default transition-colors cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -293,20 +293,20 @@ export const ServicesSection: React.FC = () => {
   return (
     <section
       id="tratamientos"
-      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-emerald-50 via-white to-teal-50 border-b border-teal-100"
+      className="py-14 md:py-20 lg:py-24 bg-gradient-to-b from-violet-50 via-white to-purple-50 border-b border-purple-100"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Título con el mismo estilo que "Nosotros": grande, centrado y con degradado */}
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-14">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            <span className="bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-700 via-violet-600 to-purple-500 bg-clip-text text-transparent">
               Tratamientos
             </span>
           </h2>
-          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400" />
+          <div className="mx-auto mt-4 mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-violet-500 to-amber-400" />
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight mb-3">
             Lo que podemos hacer por tu{' '}
-            <span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-600 to-purple-500 bg-clip-text text-transparent">
               salud bucal
             </span>
           </h3>
