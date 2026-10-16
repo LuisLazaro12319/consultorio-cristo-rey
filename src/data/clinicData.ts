@@ -95,11 +95,12 @@ export interface Highlight {
   text: string;
 }
 
-// Las tres cajitas debajo del inicio: solo datos que figuran en su ficha de Google e Instagram.
+// Las tres cajitas debajo del inicio (las mismas de las otras demos, a pedido de Luis).
 export const HIGHLIGHTS: Highlight[] = [
-  { icon: 'pin', title: 'En Villa Celina', text: 'Bragado esquina Bariloche' },
-  { icon: 'heart', title: 'Ortodoncia y odontología', text: 'Consultá por tu tratamiento' },
-  { icon: 'calendar', title: 'Turnos por WhatsApp', text: 'Escribinos y coordinamos tu turno' },
+  // A CONFIRMAR con el consultorio: cifra de ejemplo para la demo.
+  { icon: 'users', title: '+1.000 pacientes felices', text: 'Confían en nosotros para cuidar su sonrisa' },
+  { icon: 'heart', title: 'Atención personalizada', text: 'Cálida y cercana en cada consulta' },
+  { icon: 'calendar', title: 'Turnos rápidos', text: 'Confirmación vía WhatsApp' },
 ];
 
 export interface Review {

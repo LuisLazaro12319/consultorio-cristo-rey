@@ -10,6 +10,20 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="space-y-3">
+            <img
+              src={`${import.meta.env.BASE_URL}images/logo-completo.png`}
+              alt={`Logo de ${CLINIC.name}`}
+              loading="lazy"
+              className="w-44 h-auto -ml-4"
+              style={{
+                WebkitMaskImage:
+                  'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent)',
+                maskImage:
+                  'linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent)',
+                WebkitMaskComposite: 'source-in',
+                maskComposite: 'intersect',
+              }}
+            />
             <div className="text-lg font-bold text-emerald-950">{CLINIC.name}</div>
             <p className="text-emerald-900 leading-relaxed">
               Clínica dental: {CLINIC.servicesSummary}.
