@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Camera, Check, ChevronLeft, ChevronRight, Clock, Copy, ExternalLink, MapPin, Navigation } from 'lucide-react';
-import { BRANCHES, CLINIC, SCHEDULE, getClinicStatus, sedeTxt, whatsappUrl } from '../data/clinicData';
+import { BRANCHES, CLINIC, SCHEDULE, getClinicStatus, horarioLineas, sedeTxt, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
 import { useSucursal } from '../data/sucursalElegida';
 
@@ -246,9 +246,7 @@ export const LocationSection: React.FC = () => {
                                 }`}
                               >
                                 <span>{d.dayName}</span>
-                                <span className="font-mono text-xs">
-                                  {d.open && d.close ? `${d.open} - ${d.close}` : 'Cerrado'}
-                                </span>
+                                <span className="font-mono text-xs text-right">{horarioLineas(d).map((l) => (<span key={l} className="block">{l}</span>))}</span>
                               </div>
                             );
                           })}

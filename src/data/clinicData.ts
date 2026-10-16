@@ -8,16 +8,17 @@ export const CLINIC = {
   name: 'Consultorio Dental Cristo Rey',
   initials: 'CR',
   professional: 'nuestro equipo',
-  street: 'Bragado esq. Bariloche',
-  streets: 'Bragado esq. Bariloche, Villa Celina',
+  street: 'Franklin D. Roosevelt 965',
+  streets: 'Franklin D. Roosevelt 965, Villa Celina',
   locality: 'Villa Celina',
   province: 'Provincia de Buenos Aires',
-  fullAddress: 'Bragado esquina Bariloche, Villa Celina, Provincia de Buenos Aires',
+  // Dirección del perfil de WhatsApp Business; el pin de Google Maps marca Bragado esquina Bariloche, en la misma zona.
+  fullAddress: 'Franklin Delano Roosevelt 965, B1772 Villa Celina, Provincia de Buenos Aires',
   since: 0,
-  phone: '011 5840-6949',
-  // A CONFIRMAR: es el teléfono de la ficha de Google; se asume que atiende por WhatsApp.
-  whatsappNumber: '5491158406949',
-  whatsappDisplay: '011 5840-6949',
+  // Número que pasó el cliente (reemplaza al de la ficha de Google, que estaba mal).
+  phone: '011 4477-7656',
+  whatsappNumber: '5491144777656',
+  whatsappDisplay: '11 4477-7656',
   instagramHandle: '@consultorio.dental.cristo.rey',
   instagramUrl: 'https://www.instagram.com/consultorio.dental.cristo.rey/',
   mapsUrl: 'https://maps.app.goo.gl/qLXbFBiwJsN86uae6',
@@ -30,10 +31,10 @@ export const CLINIC = {
   photo: null as string | null,
   servicesSummary: 'ortodoncia y odontología general',
   paymentMethods: [] as string[],
-  // A CONFIRMAR: en Google solo figura el cierre a las 20 hs.
-  hoursSummary: 'Lunes a viernes de 9 a 20 hs',
-  headline: 'Tu sonrisa,',
-  headlineHighlight: 'bien cuidada',
+  hoursSummary: 'Lunes a sábado de 9 a 12 y de 15 a 20 hs',
+  // Lema de su perfil de WhatsApp Business: ARTE Y CIENCIA EN TU SONRISA.
+  headline: 'Arte y ciencia',
+  headlineHighlight: 'en tu sonrisa',
   locationLabel: 'Villa Celina',
 };
 
@@ -50,6 +51,18 @@ export const SOCIALS: SocialLink[] = [
     label: 'Instagram',
     handle: '@consultorio.dental.cristo.rey',
     url: 'https://www.instagram.com/consultorio.dental.cristo.rey/',
+  },
+  {
+    id: 'tiktok',
+    label: 'TikTok',
+    handle: '@dental.cristo.rey',
+    url: 'https://www.tiktok.com/@dental.cristo.rey',
+  },
+  {
+    id: 'facebook',
+    label: 'Facebook',
+    handle: 'Consultorio Dental Cristo Rey',
+    url: 'https://www.facebook.com/profile.php?id=61567521746668',
   },
 ];
 
@@ -73,13 +86,13 @@ export interface Branch {
 export const BRANCHES: Branch[] = [
   {
     id: 'villa-celina',
-    label: 'Bragado esq. Bariloche',
+    label: 'Franklin D. Roosevelt 965',
     zone: 'Villa Celina',
-    fullAddress: 'Bragado esquina Bariloche, Villa Celina, Provincia de Buenos Aires',
+    fullAddress: 'Franklin Delano Roosevelt 965, B1772 Villa Celina, Provincia de Buenos Aires',
     mapsUrl: 'https://maps.app.goo.gl/qLXbFBiwJsN86uae6',
     mapQuery: '-34.7009432,-58.4829577',
-    whatsapp: '5491158406949',
-    whatsappDisplay: '011 5840-6949',
+    whatsapp: '5491144777656',
+    whatsappDisplay: '11 4477-7656',
     photo: null,
     video: 'videos/donde-estamos.mp4',
     showSchedule: true,
@@ -192,18 +205,37 @@ export interface ScheduleDay {
   dayIndex: number; // 0 = domingo ... 6 = sábado
   open: string | null;
   close: string | null;
+  /** Segundo turno del día (horario cortado), si lo hay. */
+  open2?: string;
+  close2?: string;
 }
 
-// A CONFIRMAR: en Google solo figura el cierre a las 20 hs; el resto es un horario de ejemplo para la demo.
+// Horarios del perfil de WhatsApp Business del consultorio: lunes a sábado, mañana y tarde.
 export const SCHEDULE: ScheduleDay[] = [
-  { dayName: 'Lunes', dayIndex: 1, open: '09:00', close: '20:00' },
-  { dayName: 'Martes', dayIndex: 2, open: '09:00', close: '20:00' },
-  { dayName: 'Miércoles', dayIndex: 3, open: '09:00', close: '20:00' },
-  { dayName: 'Jueves', dayIndex: 4, open: '09:00', close: '20:00' },
-  { dayName: 'Viernes', dayIndex: 5, open: '09:00', close: '20:00' },
-  { dayName: 'Sábado', dayIndex: 6, open: null, close: null },
+  { dayName: 'Lunes', dayIndex: 1, open: '09:00', close: '12:00', open2: '15:00', close2: '20:00' },
+  { dayName: 'Martes', dayIndex: 2, open: '09:00', close: '12:00', open2: '15:00', close2: '20:00' },
+  { dayName: 'Miércoles', dayIndex: 3, open: '09:00', close: '12:00', open2: '15:00', close2: '20:00' },
+  { dayName: 'Jueves', dayIndex: 4, open: '09:00', close: '12:00', open2: '15:00', close2: '20:00' },
+  { dayName: 'Viernes', dayIndex: 5, open: '09:00', close: '12:00', open2: '15:00', close2: '20:00' },
+  { dayName: 'Sábado', dayIndex: 6, open: '09:00', close: '12:00', open2: '15:00', close2: '20:00' },
   { dayName: 'Domingo', dayIndex: 0, open: null, close: null },
 ];
+
+/** Turnos del día como pares [desde, hasta]; vacío si está cerrado. */
+const turnosDelDia = (d?: ScheduleDay): [string, string][] => {
+  if (!d) return [];
+  const pares: [string | null | undefined, string | null | undefined][] = [
+    [d.open, d.close],
+    [d.open2, d.close2],
+  ];
+  return pares.filter((p): p is [string, string] => Boolean(p[0] && p[1]));
+};
+
+/** Una línea por turno ("09:00 - 12:00", "15:00 - 20:00") o "Cerrado". */
+export function horarioLineas(d: ScheduleDay): string[] {
+  const turnos = turnosDelDia(d);
+  return turnos.length ? turnos.map(([a, b]) => `${a} - ${b}`) : ['Cerrado'];
+}
 
 const TIME_ZONE = 'America/Argentina/Buenos_Aires';
 
@@ -234,21 +266,22 @@ export function getClinicStatus(now: Date = new Date()): ClinicStatus {
   const today = dayMap[weekday] ?? now.getDay();
   const minutes = hour * 60 + minute;
 
-  const day = SCHEDULE.find((d) => d.dayIndex === today);
-  if (day?.open && day.close) {
-    if (minutes >= toMinutes(day.open) && minutes < toMinutes(day.close)) {
-      return { isOpen: true, badge: 'Abierto ahora', detail: `Cierra a las ${day.close} hs` };
-    }
-    if (minutes < toMinutes(day.open)) {
-      return { isOpen: false, badge: 'Cerrado ahora', detail: `Abre hoy a las ${day.open} hs` };
-    }
+  const turnos = turnosDelDia(SCHEDULE.find((d) => d.dayIndex === today));
+  const abierto = turnos.find(([a, b]) => minutes >= toMinutes(a) && minutes < toMinutes(b));
+  if (abierto) {
+    return { isOpen: true, badge: 'Abierto ahora', detail: `Cierra a las ${abierto[1]} hs` };
+  }
+  const proximo = turnos.find(([a]) => minutes < toMinutes(a));
+  if (proximo) {
+    return { isOpen: false, badge: 'Cerrado ahora', detail: `Abre hoy a las ${proximo[0]} hs` };
   }
 
   for (let i = 1; i <= 7; i++) {
-    const next = SCHEDULE.find((d) => d.dayIndex === (today + i) % 7);
-    if (next?.open) {
-      const cuando = i === 1 ? 'mañana' : `el ${next.dayName.toLowerCase()}`;
-      return { isOpen: false, badge: 'Cerrado por hoy', detail: `Abre ${cuando} a las ${next.open} hs` };
+    const siguiente = turnosDelDia(SCHEDULE.find((d) => d.dayIndex === (today + i) % 7));
+    if (siguiente.length) {
+      const dia = SCHEDULE.find((d) => d.dayIndex === (today + i) % 7);
+      const cuando = i === 1 ? 'mañana' : `el ${dia?.dayName.toLowerCase()}`;
+      return { isOpen: false, badge: 'Cerrado por hoy', detail: `Abre ${cuando} a las ${siguiente[0][0]} hs` };
     }
   }
   return { isOpen: false, badge: 'Cerrado ahora', detail: '' };

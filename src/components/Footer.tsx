@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Phone } from 'lucide-react';
-import { BRANCHES, CLINIC, SCHEDULE, SOCIALS } from '../data/clinicData';
+import { BRANCHES, CLINIC, SCHEDULE, SOCIALS, horarioLineas } from '../data/clinicData';
 import { InstagramIcon, WhatsAppIcon } from './BrandIcons';
 import { ICONOS_REDES } from './redes';
 
@@ -64,7 +64,13 @@ export const Footer: React.FC = () => {
               {SCHEDULE.map((d) => (
                 <li key={d.dayName} className="flex justify-between gap-6 max-w-xs">
                   <span>{d.dayName}</span>
-                  <span className="font-mono text-xs">{d.open && d.close ? `${d.open} - ${d.close}` : 'Cerrado'}</span>
+                  <span className="font-mono text-xs text-right">
+                    {horarioLineas(d).map((l) => (
+                      <span key={l} className="block">
+                        {l}
+                      </span>
+                    ))}
+                  </span>
                 </li>
               ))}
             </ul>
